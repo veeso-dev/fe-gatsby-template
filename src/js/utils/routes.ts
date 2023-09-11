@@ -1,4 +1,4 @@
-import { getNavigatorLanguage } from './translations';
+import { getNavigatorLanguage } from './locale';
 
 export enum Route {
   CONTACTS = 'contacts',
@@ -31,6 +31,10 @@ interface MenuEntry {
 }
 
 export const getIdFromHash = (): string | undefined => {
+  if (typeof window === 'undefined') {
+    return undefined;
+  }
+
   const hash = window.location.hash;
   const lastIndex = hash.lastIndexOf('#');
 

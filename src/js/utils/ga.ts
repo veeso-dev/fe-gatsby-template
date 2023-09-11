@@ -1,6 +1,10 @@
 import { isAnalyticsCookiesConsentGiven } from './cookies';
 
 const pushGA4Event = (eventName: string, parameters: any) => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
   const canUseGa4 =
     window.gtag !== undefined && isAnalyticsCookiesConsentGiven();
 
@@ -16,7 +20,7 @@ export const initGaConsent = (
   adStorage: boolean,
   analyticsStorage: boolean,
 ) => {
-  if (window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('consent', 'default', {
       ad_storage: consent(adStorage),
       analytics_storage: consent(analyticsStorage),
@@ -25,7 +29,7 @@ export const initGaConsent = (
 };
 
 export const setGaConsent = (adStorage: boolean, analyticsStorage: boolean) => {
-  if (window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('consent', 'update', {
       ad_storage: consent(adStorage),
       analytics_storage: consent(analyticsStorage),

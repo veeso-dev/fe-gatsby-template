@@ -5,12 +5,14 @@ interface SeoPages {
 interface SeoData {
   title: string;
   description: string;
+  ogSiteName?: string;
 }
 
 const PAGE_TITLES: SeoPages = {
   '/': {
     title: '',
     description: '',
+    ogSiteName: '',
   },
 };
 
@@ -25,6 +27,11 @@ const seoData = (pathname: string): SeoData | undefined => {
 export const pageTitle = (pathname: string): string => {
   const data = seoData(pathname);
   return data ? data.title : '404 Not found';
+};
+
+export const pageOgSiteName = (pathname: string): string => {
+  const data = seoData(pathname);
+  return data?.ogSiteName ? data.ogSiteName : pageTitle(pathname);
 };
 
 export const pageDescription = (pathname: string): string => {

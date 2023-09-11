@@ -7,7 +7,7 @@ import CookieBar from './js/components/CookieBar';
 import Fallback from './js/pages/Fallback';
 import Footer from './js/components/Footer';
 import SeoEngine from './js/components/SeoEngine';
-import TRANSLATIONS, { getNavigatorLanguage } from './js/utils/translations';
+import TRANSLATIONS, { getNavigatorLanguage } from './js/utils/locale';
 import {
   hasCookiePreferences,
   isAnalyticsCookiesConsentGiven,

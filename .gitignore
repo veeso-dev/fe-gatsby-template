@@ -2,6 +2,7 @@
 .parcel-cache/
 coverage/
 dist/*
+!dist/index.html
 node_modules/
 *.log
 
@@ -15,3 +16,8 @@ ehthumbs.db
 Thumbs.db
 
 dist/
+
+parcel-bundle-reports/
+
+public/
+.cache/
