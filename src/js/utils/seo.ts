@@ -38,3 +38,6 @@ export const pageDescription = (pathname: string): string => {
   const data = seoData(pathname);
   return data ? data.description : 'Page could not be found on the website';
 };
+
+export const isPageNotFound = (pathname: string): boolean =>
+  seoData(pathname) === undefined;

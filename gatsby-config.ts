@@ -9,6 +9,7 @@ const config: GatsbyConfig = {
   },
   graphqlTypegen: true,
   plugins: [
+    'gatsby-plugin-webpack-bundle-analyser-v2',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
